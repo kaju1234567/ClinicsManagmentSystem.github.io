@@ -1,10 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\clinic management",
-    "\\clinic management\\PanelReceptionist",
-    "\\clinic management\\Properties"
+    ""
   ],
-  "SelectedNode": "\\clinic management\\PanelReceptionist\\Addsymptomforreceptionist.aspx",
+  "SelectedNode": "\\Receptionist.Master",
   "PreviewInSolutionExplorer": false
 }
