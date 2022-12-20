@@ -1,0 +1,884 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0FEF37E5-3521-4C30-9652-3F59B6982492}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>clinic_management</RootNamespace>
+    <AssemblyName>clinic management</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="GMaps">
+      <HintPath>..\..\..\..\GMaps.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.11.4.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.11.4\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.1.11\lib\net46\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.1.11\lib\net46\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=8.0.15.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Web, Version=8.0.15.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MapClinic.aspx" />
+    <Content Include="Patient\AssignReportToDoctor.aspx" />
+    <Content Include="PanelReceptionist\Addservicesagainstdoctor.aspx" />
+    <Content Include="Admin\Addclinicforadmin.aspx" />
+    <Content Include="ChangePassword.aspx" />
+    <Content Include="newjs\jquery-3.5.1.min.js" />
+    <Content Include="PanelReceptionist\Addreceptionist.aspx" />
+    <Content Include="PanelReceptionist\Updatereceptionist.aspx" />
+    <Content Include="PanelReceptionist\Viewreceptionist.aspx" />
+    <Content Include="Doctor\PatientHistory.aspx" />
+    <Content Include="Doctor\PatientPrescription.aspx" />
+    <Content Include="Patient\CancelAppointmentPatient.aspx" />
+    <Content Include="DetailClinic.aspx" />
+    <Content Include="Patient\ConfirmAppointment.aspx" />
+    <Content Include="Patient\DoctorAppointment.aspx" />
+    <Content Include="Forgetpassword.aspx" />
+    <Content Include="PanelReceptionist\Adddoctorforreceptionist.aspx" />
+    <Content Include="PanelReceptionist\Adddoctortimetable.aspx" />
+    <Content Include="PanelReceptionist\Adddoctortimingforreceptionist.aspx" />
+    <Content Include="PanelReceptionist\Addsymptomforreceptionist.aspx" />
+    <Content Include="Admin\Admincontent.aspx" />
+    <Content Include="Admin\Adminupdateprofile.aspx" />
+    <Content Include="assets\css\boostrapnav.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\img\about.jpg" />
+    <Content Include="assets\img\departments-1.jpg" />
+    <Content Include="assets\img\departments-2.jpg" />
+    <Content Include="assets\img\departments-3.jpg" />
+    <Content Include="assets\img\departments-4.jpg" />
+    <Content Include="assets\img\departments-5.jpg" />
+    <Content Include="assets\img\doctors\doctors-1.jpg" />
+    <Content Include="assets\img\doctors\doctors-2.jpg" />
+    <Content Include="assets\img\doctors\doctors-3.jpg" />
+    <Content Include="assets\img\doctors\doctors-4.jpg" />
+    <Content Include="assets\img\gallery\gallery-1.jpg" />
+    <Content Include="assets\img\gallery\gallery-2.jpg" />
+    <Content Include="assets\img\gallery\gallery-3.jpg" />
+    <Content Include="assets\img\gallery\gallery-4.jpg" />
+    <Content Include="assets\img\gallery\gallery-5.jpg" />
+    <Content Include="assets\img\gallery\gallery-6.jpg" />
+    <Content Include="assets\img\gallery\gallery-7.jpg" />
+    <Content Include="assets\img\gallery\gallery-8.jpg" />
+    <Content Include="assets\img\hero-bg.jpg" />
+    <Content Include="assets\img\person logo.PNG" />
+    <Content Include="assets\img\testimonials\testimonials-1.jpg" />
+    <Content Include="assets\img\testimonials\testimonials-2.jpg" />
+    <Content Include="assets\img\testimonials\testimonials-3.jpg" />
+    <Content Include="assets\img\testimonials\testimonials-4.jpg" />
+    <Content Include="assets\img\testimonials\testimonials-5.jpg" />
+    <Content Include="assets\js\main.js" />
+    <Content Include="assets\vendor\animate.css\animate.compat.css" />
+    <Content Include="assets\vendor\animate.css\animate.css" />
+    <Content Include="assets\vendor\animate.css\animate.min.css" />
+    <Content Include="assets\vendor\bootstrap-datepicker\css\bootstrap-datepicker.css" />
+    <Content Include="assets\vendor\bootstrap-datepicker\css\bootstrap-datepicker.min.css" />
+    <Content Include="assets\vendor\bootstrap-datepicker\css\bootstrap-datepicker.standalone.css" />
+    <Content Include="assets\vendor\bootstrap-datepicker\css\bootstrap-datepicker.standalone.min.css" />
+    <Content Include="assets\vendor\bootstrap-datepicker\css\bootstrap-datepicker3.css" />
+    <Content Include="assets\vendor\bootstrap-datepicker\css\bootstrap-datepicker3.min.css" />
+    <Content Include="assets\vendor\bootstrap-datepicker\css\bootstrap-datepicker3.standalone.css" />
+    <Content Include="assets\vendor\bootstrap-datepicker\css\bootstrap-datepicker3.standalone.min.css" />
+    <Content Include="assets\vendor\bootstrap-datepicker\js\bootstrap-datepicker.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\js\bootstrap-datepicker.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker-en-CA.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.ar-tn.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.ar.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.az.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.bg.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.bm.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.bn.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.br.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.bs.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.ca.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.cs.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.cy.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.da.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.de.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.el.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.en-AU.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.en-CA.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.en-GB.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.en-IE.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.en-NZ.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.en-ZA.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.eo.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.es.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.et.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.eu.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.fa.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.fi.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.fo.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.fr-CH.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.fr.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.gl.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.he.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.hi.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.hr.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.hu.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.hy.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.id.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.is.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.it-CH.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.it.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.ja.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.ka.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.kh.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.kk.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.km.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.ko.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.kr.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.lt.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.lv.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.me.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.mk.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.mn.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.ms.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.nl-BE.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.nl.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.no.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.oc.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.pl.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.pt-BR.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.pt.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.ro.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.rs-latin.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.rs.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.ru.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.si.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.sk.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.sl.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.sq.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.sr-latin.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.sr.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.sv.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.sw.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.ta.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.tg.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.th.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.tk.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.tr.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.uk.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.uz-cyrl.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.uz-latn.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.vi.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.zh-CN.min.js" />
+    <Content Include="assets\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.zh-TW.min.js" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assets\vendor\boxicons\css\animations.css" />
+    <Content Include="assets\vendor\boxicons\css\boxicons.css" />
+    <Content Include="assets\vendor\boxicons\css\boxicons.min.css" />
+    <Content Include="assets\vendor\boxicons\css\transformations.css" />
+    <Content Include="assets\vendor\boxicons\fonts\boxicons.svg" />
+    <Content Include="assets\vendor\counterup\counterup.min.js" />
+    <Content Include="assets\vendor\icofont\icofont.min.css" />
+    <Content Include="assets\vendor\jquery.easing\jquery.easing.min.js" />
+    <Content Include="assets\vendor\jquery\jquery.min.js" />
+    <Content Include="assets\vendor\owl.carousel\assets\ajax-loader.gif" />
+    <Content Include="assets\vendor\owl.carousel\assets\owl.carousel.css" />
+    <Content Include="assets\vendor\owl.carousel\assets\owl.carousel.min.css" />
+    <Content Include="assets\vendor\owl.carousel\assets\owl.theme.default.css" />
+    <Content Include="assets\vendor\owl.carousel\assets\owl.theme.default.min.css" />
+    <Content Include="assets\vendor\owl.carousel\assets\owl.theme.green.css" />
+    <Content Include="assets\vendor\owl.carousel\assets\owl.theme.green.min.css" />
+    <Content Include="assets\vendor\owl.carousel\assets\owl.video.play.png" />
+    <Content Include="assets\vendor\owl.carousel\owl.carousel.js" />
+    <Content Include="assets\vendor\owl.carousel\owl.carousel.min.js" />
+    <Content Include="assets\vendor\php-email-form\changelog.txt" />
+    <Content Include="assets\vendor\php-email-form\validate.js" />
+    <Content Include="assets\vendor\remixicon\remixicon.css" />
+    <Content Include="assets\vendor\remixicon\remixicon.svg" />
+    <Content Include="assets\vendor\remixicon\remixicon.symbol.svg" />
+    <Content Include="assets\vendor\venobox\venobox.css" />
+    <Content Include="assets\vendor\venobox\venobox.js" />
+    <Content Include="assets\vendor\venobox\venobox.min.css" />
+    <Content Include="assets\vendor\venobox\venobox.min.js" />
+    <Content Include="assets\vendor\waypoints\jquery.waypoints.min.js" />
+    <Content Include="PanelReceptionist\Addtime.aspx" />
+    <Content Include="PanelReceptionist\Collectfeeforreceptionist.aspx" />
+    <Content Include="contactpage.aspx" />
+    <Content Include="Doctor\Doctorupdateprofile.aspx" />
+    <Content Include="Doctor\doctorwelcome.aspx" />
+    <Content Include="homecontent.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="PanelReceptionist\Adddisease.aspx" />
+    <Content Include="PanelReceptionist\Clinictype.aspx" />
+    <Content Include="PanelReceptionist\Updateclinictype.aspx" />
+    <Content Include="PanelReceptionist\Updatedisease.aspx" />
+    <Content Include="PanelReceptionist\Viewclinicservices.aspx" />
+    <Content Include="PanelReceptionist\Viewdisease.aspx" />
+    <Content Include="Doctor\Patientfeesfordoctor.aspx" />
+    <Content Include="Doctor\Patientreportsfordoctor.aspx" />
+    <Content Include="Patient\Patientupdateprofile.aspx" />
+    <Content Include="Patient\Patientwelcome.aspx" />
+    <Content Include="PanelReceptionist\Receptionistupdateprofile.aspx" />
+    <Content Include="PanelReceptionist\receptionistwelcome.aspx" />
+    <Content Include="registrationwithdb.aspx" />
+    <Content Include="signinsignupcontent.aspx" />
+    <Content Include="Signout.aspx" />
+    <Content Include="Admin\UpdateClinic.aspx" />
+    <Content Include="Patient\Uploadreportforpatient.aspx" />
+    <Content Include="Admin\Viewclinicforadmin.aspx" />
+    <Content Include="Patient\Viewclinicforpatient.aspx" />
+    <Content Include="Admin\Viewdoctorforadmin.aspx" />
+    <Content Include="Patient\Viewdoctorforpatient.aspx" />
+    <Content Include="PanelReceptionist\ViewDoctorReceptionist.aspx" />
+    <Content Include="Doctor\Viewpatientappointmentfordoctor.aspx" />
+    <Content Include="Doctor\Viewpatientfordoctor.aspx" />
+    <Content Include="PanelReceptionist\Viewpatientforreceptionist.aspx" />
+    <Content Include="Patient\Viewreportforpatient.aspx" />
+    <Content Include="Patient\Viewtimingforpatient.aspx" />
+    <Content Include="Patient\Viewdoctorbyclinic.aspx" />
+    <Content Include="PanelReceptionist\updatedoctorreceptonist.aspx" />
+    <Content Include="PanelReceptionist\Viewdoctortimeforreceptionist.aspx" />
+    <Content Include="PanelReceptionist\UpdateDoctorTimeTable.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MapClinic.aspx.cs">
+      <DependentUpon>MapClinic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MapClinic.aspx.designer.cs">
+      <DependentUpon>MapClinic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\AssignReportToDoctor.aspx.cs">
+      <DependentUpon>AssignReportToDoctor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\AssignReportToDoctor.aspx.designer.cs">
+      <DependentUpon>AssignReportToDoctor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PanelReceptionist\Addservicesagainstdoctor.aspx.cs">
+      <DependentUpon>Addservicesagainstdoctor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PanelReceptionist\Addservicesagainstdoctor.aspx.designer.cs">
+      <DependentUpon>Addservicesagainstdoctor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Addclinicforadmin.aspx.cs">
+      <DependentUpon>Addclinicforadmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Addclinicforadmin.aspx.designer.cs">
+      <DependentUpon>Addclinicforadmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PanelReceptionist\Addreceptionist.aspx.cs">
+      <DependentUpon>Addreceptionist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PanelReceptionist\Addreceptionist.aspx.designer.cs">
+      <DependentUpon>Addreceptionist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PanelReceptionist\Updatereceptionist.aspx.cs">
+      <DependentUpon>Updatereceptionist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PanelReceptionist\Updatereceptionist.aspx.designer.cs">
+      <DependentUpon>Updatereceptionist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PanelReceptionist\Viewreceptionist.aspx.cs">
+      <DependentUpon>Viewreceptionist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PanelReceptionist\Viewreceptionist.aspx.designer.cs">
+      <DependentUpon>Viewreceptionist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\PatientHistory.aspx.cs">
+      <DependentUpon>PatientHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\PatientHistory.aspx.designer.cs">
+      <DependentUpon>PatientHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\PatientPrescription.aspx.cs">
+      <DependentUpon>PatientPrescription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\PatientPrescription.aspx.designer.cs">
+      <DependentUpon>PatientPrescription.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\CancelAppointmentPatient.aspx.cs">
+      <DependentUpon>CancelAppointmentPatient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\CancelAppointmentPatient.aspx.designer.cs">
+      <DependentUpon>CancelAppointmentPatient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetailClinic.aspx.cs">
+      <DependentUpon>DetailClinic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetailClinic.aspx.designer.cs">
+      <DependentUpon>DetailClinic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\ConfirmAppointment.aspx.cs">
+      <DependentUpon>ConfirmAppointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\ConfirmAppointment.aspx.designer.cs">
+      <DependentUpon>ConfirmAppointment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\DoctorAppointment.aspx.cs">
+      <DependentUpon>DoctorAppointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\DoctorAppointment.aspx.designer.cs">
+      <DependentUpon>DoctorAppointment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forgetpassword.aspx.cs">
+      <DependentUpon>Forgetpassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forgetpassword.aspx.designer.cs">
+      <DependentUpon>Forgetpassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PanelReceptionist\Adddoctorforreceptionist.aspx.cs">
+      <DependentUpon>Adddoctorforreceptionist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PanelReceptionist\Adddoctorforreceptionist.aspx.designer.cs">
+      <DependentUpon>Adddoctorforreceptionist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PanelReceptionist\Adddoctortimetable.aspx.cs">
+      <DependentUpon>Adddoctortimetable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PanelReceptionist\Adddoctortimetable.aspx.designer.cs">
+      <DependentUpon>Adddoctortimetable.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PanelReceptionist\Adddoctortimingforreceptionist.aspx.cs">
+      <DependentUpon>Adddoctortimingforreceptionist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PanelReceptionist\Adddoctortimingforreceptionist.aspx.designer.cs">
+      <DependentUpon>Adddoctortimingforreceptionist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PanelReceptionist\Addsymptomforreceptionist.aspx.cs">
+      <DependentUpon>Addsymptomforreceptionist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PanelReceptionist\Addsymptomforreceptionist.aspx.designer.cs">
+      <DependentUpon>Addsymptomforreceptionist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Admincontent.aspx.cs">
+      <DependentUpon>Admincontent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Admincontent.aspx.designer.cs">
+      <DependentUpon>Admincontent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Adminupdateprofile.aspx.cs">
+      <DependentUpon>Adminupdateprofile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Adminupdateprofile.aspx.designer.cs">
+      <DependentUpon>Adminupdateprofile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Beans\Userinfo.cs" />
+    <Compile Include="PanelReceptionist\Addtime.aspx.cs">
+      <DependentUpon>Addtime.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PanelReceptionist\Addtime.aspx.designer.cs">
+      <DependentUpon>Addtime.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PanelReceptionist\Collectfeeforreceptionist.aspx.cs">
+      <DependentUpon>Collectfeeforreceptionist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PanelReceptionist\Collectfeeforreceptionist.aspx.designer.cs">
+      <DependentUpon>Collectfeeforreceptionist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="contactpage.aspx.cs">
+      <DependentUpon>contactpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contactpage.aspx.designer.cs">
+      <DependentUpon>contactpage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseClass.cs" />
+    <Compile Include="dbclasses\ClinicDML.cs" />
+    <Compile Include="dbclasses\Connectioncls.cs" />
+    <Compile Include="dbclasses\Singuporsignin.cs" />
+    <Compile Include="Doctor.Master.cs">
+      <DependentUpon>Doctor.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor.Master.designer.cs">
+      <DependentUpon>Doctor.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\Doctorupdateprofile.aspx.cs">
+      <DependentUpon>Doctorupdateprofile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\Doctorupdateprofile.aspx.designer.cs">
+      <DependentUpon>Doctorupdateprofile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\doctorwelcome.aspx.cs">
+      <DependentUpon>doctorwelcome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\doctorwelcome.aspx.designer.cs">
+      <DependentUpon>doctorwelcome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Beans\clinicservice.cs" />
+    <Compile Include="Beans\clinictable.cs" />
+    <Compile Include="Beans\clinictypetable.cs" />
+    <Compile Include="Beans\patientappointmenttable.cs" />
+    <Compile Include="Beans\patientscreeningtable.cs" />
+    <Compile Include="Beans\profiletable.cs" />
+    <Compile Include="Beans\timetable.cs" />
+    <Compile Include="homecontent.aspx.cs">
+      <DependentUpon>homecontent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="homecontent.aspx.designer.cs">
+      <DependentUpon>homecontent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="homemaster.Master.cs">
+      <DependentUpon>homemaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="homemaster.Master.designer.cs">
+      <DependentUpon>homemaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PanelReceptionist\Adddisease.aspx.cs">
+      <DependentUpon>Adddisease.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PanelReceptionist\Adddisease.aspx.designer.cs">
+      <DependentUpon>Adddisease.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PanelReceptionist\Clinictype.aspx.cs">
+      <DependentUpon>Clinictype.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PanelReceptionist\Clinictype.aspx.designer.cs">
+      <DependentUpon>Clinictype.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PanelReceptionist\Updateclinictype.aspx.cs">
+      <DependentUpon>Updateclinictype.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PanelReceptionist\Updateclinictype.aspx.designer.cs">
+      <DependentUpon>Updateclinictype.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PanelReceptionist\Updatedisease.aspx.cs">
+      <DependentUpon>Updatedisease.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PanelReceptionist\Updatedisease.aspx.designer.cs">
+      <DependentUpon>Updatedisease.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PanelReceptionist\Viewclinicservices.aspx.cs">
+      <DependentUpon>Viewclinicservices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PanelReceptionist\Viewclinicservices.aspx.designer.cs">
+      <DependentUpon>Viewclinicservices.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PanelReceptionist\Viewdisease.aspx.cs">
+      <DependentUpon>Viewdisease.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PanelReceptionist\Viewdisease.aspx.designer.cs">
+      <DependentUpon>Viewdisease.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient.Master.cs">
+      <DependentUpon>Patient.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient.Master.designer.cs">
+      <DependentUpon>Patient.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\Patientfeesfordoctor.aspx.cs">
+      <DependentUpon>Patientfeesfordoctor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\Patientfeesfordoctor.aspx.designer.cs">
+      <DependentUpon>Patientfeesfordoctor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\Patientreportsfordoctor.aspx.cs">
+      <DependentUpon>Patientreportsfordoctor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\Patientreportsfordoctor.aspx.designer.cs">
+      <DependentUpon>Patientreportsfordoctor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\Patientupdateprofile.aspx.cs">
+      <DependentUpon>Patientupdateprofile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\Patientupdateprofile.aspx.designer.cs">
+      <DependentUpon>Patientupdateprofile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\Patientwelcome.aspx.cs">
+      <DependentUpon>Patientwelcome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\Patientwelcome.aspx.designer.cs">
+      <DependentUpon>Patientwelcome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Receptionist.Master.cs">
+      <DependentUpon>Receptionist.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receptionist.Master.designer.cs">
+      <DependentUpon>Receptionist.Master</DependentUpon>
+    </Compile>
+    <Compile Include="PanelReceptionist\Receptionistupdateprofile.aspx.cs">
+      <DependentUpon>Receptionistupdateprofile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PanelReceptionist\Receptionistupdateprofile.aspx.designer.cs">
+      <DependentUpon>Receptionistupdateprofile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PanelReceptionist\receptionistwelcome.aspx.cs">
+      <DependentUpon>receptionistwelcome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PanelReceptionist\receptionistwelcome.aspx.designer.cs">
+      <DependentUpon>receptionistwelcome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="registrationwithdb.aspx.cs">
+      <DependentUpon>registrationwithdb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="registrationwithdb.aspx.designer.cs">
+      <DependentUpon>registrationwithdb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="signinsignupcontent.aspx.cs">
+      <DependentUpon>signinsignupcontent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="signinsignupcontent.aspx.designer.cs">
+      <DependentUpon>signinsignupcontent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Signout.aspx.cs">
+      <DependentUpon>Signout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Signout.aspx.designer.cs">
+      <DependentUpon>Signout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UpdateClinic.aspx.cs">
+      <DependentUpon>UpdateClinic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UpdateClinic.aspx.designer.cs">
+      <DependentUpon>UpdateClinic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\Uploadreportforpatient.aspx.cs">
+      <DependentUpon>Uploadreportforpatient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\Uploadreportforpatient.aspx.designer.cs">
+      <DependentUpon>Uploadreportforpatient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Viewclinicforadmin.aspx.cs">
+      <DependentUpon>Viewclinicforadmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Viewclinicforadmin.aspx.designer.cs">
+      <DependentUpon>Viewclinicforadmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\Viewclinicforpatient.aspx.cs">
+      <DependentUpon>Viewclinicforpatient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\Viewclinicforpatient.aspx.designer.cs">
+      <DependentUpon>Viewclinicforpatient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Viewdoctorforadmin.aspx.cs">
+      <DependentUpon>Viewdoctorforadmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Viewdoctorforadmin.aspx.designer.cs">
+      <DependentUpon>Viewdoctorforadmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\Viewdoctorforpatient.aspx.cs">
+      <DependentUpon>Viewdoctorforpatient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\Viewdoctorforpatient.aspx.designer.cs">
+      <DependentUpon>Viewdoctorforpatient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PanelReceptionist\ViewDoctorReceptionist.aspx.cs">
+      <DependentUpon>ViewDoctorReceptionist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PanelReceptionist\ViewDoctorReceptionist.aspx.designer.cs">
+      <DependentUpon>ViewDoctorReceptionist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\Viewpatientappointmentfordoctor.aspx.cs">
+      <DependentUpon>Viewpatientappointmentfordoctor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\Viewpatientappointmentfordoctor.aspx.designer.cs">
+      <DependentUpon>Viewpatientappointmentfordoctor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\Viewpatientfordoctor.aspx.cs">
+      <DependentUpon>Viewpatientfordoctor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\Viewpatientfordoctor.aspx.designer.cs">
+      <DependentUpon>Viewpatientfordoctor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PanelReceptionist\Viewpatientforreceptionist.aspx.cs">
+      <DependentUpon>Viewpatientforreceptionist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PanelReceptionist\Viewpatientforreceptionist.aspx.designer.cs">
+      <DependentUpon>Viewpatientforreceptionist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\Viewreportforpatient.aspx.cs">
+      <DependentUpon>Viewreportforpatient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\Viewreportforpatient.aspx.designer.cs">
+      <DependentUpon>Viewreportforpatient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\Viewtimingforpatient.aspx.cs">
+      <DependentUpon>Viewtimingforpatient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\Viewtimingforpatient.aspx.designer.cs">
+      <DependentUpon>Viewtimingforpatient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\Viewdoctorbyclinic.aspx.cs">
+      <DependentUpon>Viewdoctorbyclinic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\Viewdoctorbyclinic.aspx.designer.cs">
+      <DependentUpon>Viewdoctorbyclinic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PanelReceptionist\updatedoctorreceptonist.aspx.cs">
+      <DependentUpon>updatedoctorreceptonist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PanelReceptionist\updatedoctorreceptonist.aspx.designer.cs">
+      <DependentUpon>updatedoctorreceptonist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PanelReceptionist\Viewdoctortimeforreceptionist.aspx.cs">
+      <DependentUpon>Viewdoctortimeforreceptionist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PanelReceptionist\Viewdoctortimeforreceptionist.aspx.designer.cs">
+      <DependentUpon>Viewdoctortimeforreceptionist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PanelReceptionist\UpdateDoctorTimeTable.aspx.cs">
+      <DependentUpon>UpdateDoctorTimeTable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PanelReceptionist\UpdateDoctorTimeTable.aspx.designer.cs">
+      <DependentUpon>UpdateDoctorTimeTable.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\vendor\bootstrap-datepicker\css\bootstrap-datepicker.css.map" />
+    <Content Include="assets\vendor\bootstrap-datepicker\css\bootstrap-datepicker.standalone.css.map" />
+    <Content Include="assets\vendor\bootstrap-datepicker\css\bootstrap-datepicker3.css.map" />
+    <Content Include="assets\vendor\bootstrap-datepicker\css\bootstrap-datepicker3.standalone.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.js.map" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="assets\vendor\boxicons\fonts\boxicons.eot" />
+    <Content Include="assets\vendor\boxicons\fonts\boxicons.ttf" />
+    <Content Include="assets\vendor\boxicons\fonts\boxicons.woff" />
+    <Content Include="assets\vendor\boxicons\fonts\boxicons.woff2" />
+    <Content Include="assets\vendor\icofont\fonts\icofont.woff" />
+    <Content Include="assets\vendor\icofont\fonts\icofont.woff2" />
+    <Content Include="assets\vendor\jquery\jquery.min.map" />
+    <Content Include="assets\vendor\owl.carousel\LICENSE" />
+    <Content Include="assets\vendor\owl.carousel\README.md" />
+    <Content Include="assets\vendor\remixicon\remixicon.eot" />
+    <Content Include="assets\vendor\remixicon\remixicon.less" />
+    <Content Include="assets\vendor\remixicon\remixicon.ttf" />
+    <Content Include="assets\vendor\remixicon\remixicon.woff" />
+    <Content Include="assets\vendor\remixicon\remixicon.woff2" />
+    <Content Include="homemaster.Master" />
+    <Content Include="Admin.Master" />
+    <Content Include="Doctor.Master" />
+    <None Include="packages.config" />
+    <Content Include="Patient.Master" />
+    <Content Include="Receptionist.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="doctorimages\" />
+    <Folder Include="images\" />
+    <Folder Include="Patient\files\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>6974</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:6974/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

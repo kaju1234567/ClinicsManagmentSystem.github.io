@@ -1,0 +1,163 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Receptionist.master.cs" Inherits="clinic_management.Receptionist" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Receptionist</title>
+     <meta content="" name="description">
+  <meta content="" name="keywords">
+
+     <!-- signout handle code -->
+     <script type = "text/javascript" >  
+        function preventBack() { window.history.forward(); }  
+        setTimeout("preventBack()", 0);  
+        window.onunload = function () { null };  
+    </script>
+      <!-- end signout handle code -->
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+ 
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="assets/css/boostrapnav.css" rel="stylesheet" />
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+    <!-- =======================================================
+  * Template Name: Medilab - v2.1.0
+  * Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+    
+    <%--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">--%>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+     <style>
+        .nav-menu a{
+            color:black;
+            border-bottom:none;
+            font-size:13px;
+          
+        }
+      .nav-menu li a:hover{
+            color:white;
+        }
+      li{
+         font-weight:bold; 
+         padding-top:19px;
+      }
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style="overflow-x:hidden;">
+    
+         <div>
+             <header id="header" class="fixed-top" style="position:relative; height:110px; border: 1px solid white ; background: linear-gradient(to right, white 10%,  cadetblue 90%);">
+    <div class="container d-flex align-items-center">
+
+     <h5 style="margin-left:-90px; padding-top:10px; font-weight:bold" class="logo mr-auto"><a href="index.html" class="text-primary"><img src="../assets/img/logo.png" style="height:70px; width:70px;"/>Reception</a></h5>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+       
+                 
+         <center> 
+            
+      <nav " class="nav-menu d-none d-lg-block  ">
+        <ul >
+           <li ><a href="receptionistwelcome.aspx"  >VIEW PROFILE</a></li>
+             <li ><a href="Receptionistupdateprofile.aspx">UPDATE PROFILE</a>
+
+                 
+             </li>
+         <li class="nav-item dropdown" >
+              <a  href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" >RECEPTIONIST</a>
+              <div class="dropdown-menu">
+                <a href="Addreceptionist.aspx" class="dropdown-item" style="text-align:center">ADD RECEPTIONIST</a>
+                <a href="Viewreceptionist.aspx" class="dropdown-item" style="text-align:center">VIEW RECEPTIONIST</a>
+            </div>
+          </li >
+
+             <li class="nav-item dropdown" >
+              <a  href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">SERVICES AND DISEASE</a>
+              <div class="dropdown-menu">
+
+                <a href="Clinictype.aspx" class="dropdown-item" style="text-align:center">ADD CLINIC SERVICES</a>
+                <a href="Viewclinicservices.aspx" class="dropdown-item" style="text-align:center">VIEW CLINIC SEARVICES</a>
+                <a href="Adddisease.aspx" class="dropdown-item" style="text-align:center">ADD DISEASE</a>
+                <a href="Viewdisease.aspx" class="dropdown-item" style="text-align:center">VIEW DISEASE</a>
+            </div>
+          </li>
+
+
+          <li class="nav-item dropdown" >
+              <a  href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" >DOCTOR</a>
+              <div class="dropdown-menu">
+                  <a href="AddTime.aspx" class="dropdown-item" style="text-align:center">ADD TIME</a>
+                <a href="Adddoctorforreceptionist.aspx" class="dropdown-item" style="text-align:center">ADD DOCTOR</a>
+                <a href="ViewDoctorReceptionist.aspx" class="dropdown-item" style="text-align:center">VIEW DOCTORS</a>
+                  
+                <a href="Adddoctortimetable.aspx" class="dropdown-item" style="text-align:center">DOCTOR TIME</a>
+            </div>
+          </li >
+
+                      <li class="nav-item dropdown" >
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" >PATIENT</a>
+              <div class="dropdown-menu">
+                <a href="Viewpatientforreceptionist.aspx" class="dropdown-item" style="text-align:center">VIEW PATIENT</a>
+                <a href="Collectfeeforreceptionist.aspx" class="dropdown-item" style="text-align:center">COLLECT FEES</a>
+            </div>
+          </li>
+
+             
+
+           
+
+
+       <%--   <li><a href="Adddiseaseforreceptionist.aspx">Add Disease</a></li>
+            <li><a href="Addsymptomforreceptionist.aspx">Add symptoms</a></li>--%>
+              <li ><a href="../ChangePassword.aspx">Change Password</a></li>
+            <li ><a  href="../Signout.aspx">SIGNOUT</a></li>
+             
+        </ul>
+      </nav><!-- .nav-menu --> </center> 
+
+      <%--<a href="signinsignupcontent.aspx" class="appointment-btn scrollto">SignUp/SignIn</a>
+      --%>
+         
+</header><!-- End Header -->
+              <h6 style="padding-top:2%; padding-left:4%; font-weight:bold">WELCOME :  <i class="text-primary"><asp:Label ID="lblusername" runat="server" Text=""></asp:Label></i></h6>
+    </div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        
+         <div>
+             <div class="fixed-bottom border border-info">
+    <footer id="footer"  style=" background: linear-gradient(to right, white 10%,  cadetblue 90%); border:0.5px solid white;  height:40px; padding-left:50px; padding-top:13px;">
+    <h6 style="color:blue"> AK'sService@gmail.com,  03322343212</h6> 
+   
+           
+       
+    </footer></div>
+</div>
+
+
+    <script>
+
+    </script>
+    
+</body>
+</html>

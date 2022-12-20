@@ -1,0 +1,115 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="homemaster.master.cs" Inherits="clinic_management.homemaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Clinics management system</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+
+    <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/boostrapnav.css" rel="stylesheet" />
+    <style>
+        .signbtn {
+            height: 100%;
+            width: 100%;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+      
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+
+
+
+    <%--<form id="form1" runat="server">--%>
+    <div>
+        <header id="header" class="fixed-top " style="width:auto; height:17%;">
+
+            <div style="padding-left: 7%;" class="container col-md-4   float-left ">
+
+                <h3 class="logo text-primary">
+                    <img src="assets/img/logo.png" style="height: 58px; width: 60px; " />
+                    AK's Service</h3>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+            </div>
+
+            <nav class="nav-menu col-md-8  float-right d-block ">
+
+               
+
+                <ul>
+                    <li style="font-weight: bold; border-bottom: none;"><a href="homecontent.aspx"><i style="font-size: 20px; margin-right:5px;" class="fa fa-home "></i>Home</a></li>
+                    <li style="font-weight: bold"><a href="#doctors"><i style="font-size: 20px; margin-right:5px; " class="fa fa-user-md "></i>Doctors</a></li>
+                    <li style="font-weight: bold"><a href="#departments"><i style="font-size: 19px;  margin-right:5px;" class="fa fa-plus-square"></i>Clinics</a></li>
+                    <li style="font-weight: bold"><a href="#aboutus"><i style="font-size: 20px;  margin-right:5px;" class="fa fa-info-circle"></i>AboutUs</a></li>
+                    <li style="font-weight: bold"><a href="MapClinic.aspx"><i style="font-size: 20px;  margin-right:4px;" class="fa fa-map-marker"></i>Map</a></li>
+                    <li style="font-weight: bold; margin-left: 30px;"><a href="signinsignupcontent.aspx" class="signbtn bg-primary text-white mr-2 "><i style="font-size: 20px;  margin-right:8px;" class="fa fa-user-plus"></i>SIGNUP</a></li>
+                    <li style="font-weight: bold; margin-right:30px;"><a href="Login.aspx" class="signbtn bg-primary text-white mr-2"><i style="font-size: 20px;  margin-right:8px;" class="fa fa-sign-in"></i>SIGNIN </a></li>
+                   
+                 
+                     </ul>
+
+            </nav>
+            <!-- .nav-menu -->
+            <%--  --%>
+            <div style="clear: both;"></div>
+
+
+        </header>
+        <!-- End Header -->
+    </div>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <div>
+        <div class="fixed-bottom border border-info">
+            
+            <footer id="footer" style="background: linear-gradient(to right, white 10%,  cadetblue 90%); border: 0.5px solid white; height: 66px; width:auto; padding-left: 50px; padding-top: 13px;">
+         <div style="float:left">       <h6 style="color: blue">AK'sService@gmail.com, 03322343212</h6> </div>
+                  <div  style="float:right; margin-right:50px;" id="google_translate_element"></div>
+
+                   <!-- predefined google translate code -->
+                    <script type="text/javascript">
+                        function googleTranslateElementInit() {
+                            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+                        }
+                    </script>
+                    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                    <div style="clear: both;"></div>
+                    <!--end of predefined google translate code -->
+                
+               
+
+            </footer>
+        </div>
+    </div>
+    <%-- </form>--%>
+</body>
+</html>
